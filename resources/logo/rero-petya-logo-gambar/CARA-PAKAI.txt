@@ -1,0 +1,19 @@
+File gambar logo Rero Petya untuk website (Laravel)
+
+Salin semua file ke folder public/images/ (favicon.ico juga boleh di public/).
+
+- logo-horizontal.png          logo lengkap, latar transparan (navbar, footer) - 2x untuk layar retina
+- logo-horizontal-kecil.png    versi ukuran normal
+- logo-horizontal-latar-krem.png  logo dengan latar krem (dokumen, invoice)
+- logo-icon.svg / -512.png / -192.png   ikon saja (PWA, profil media sosial)
+- favicon.ico, favicon-32.png, favicon-16.png, apple-touch-icon.png
+- og-image.png (1200x630)      gambar pratinjau saat link dibagikan (WhatsApp, Facebook)
+
+Di <head> layout:
+<link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{{ asset('images/logo-icon.svg') }}">
+<link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
+<meta property="og:image" content="{{ asset('images/og-image.png') }}">
+
+Contoh di navbar:
+<img src="{{ asset('images/logo-horizontal.png') }}" alt="Rero Petya" height="48">

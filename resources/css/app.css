@@ -1,0 +1,214 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-brand-50: #effcf6;
+    --color-brand-100: #d7f7e7;
+    --color-brand-500: #24a36b;
+    --color-brand-600: #168354;
+    --color-brand-700: #126844;
+    --color-ink: #17352b;
+    --color-muted: #668075;
+    --color-paper: #f7faf7;
+}
+
+@layer base {
+    body {
+        @apply m-0 bg-paper font-sans text-ink antialiased;
+    }
+
+    a {
+        @apply text-inherit no-underline;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        font: inherit;
+    }
+}
+
+@layer components {
+    .site-header {
+        @apply sticky top-0 z-10 border-b border-emerald-100 bg-white/95 backdrop-blur;
+    }
+
+    .header-inner {
+        @apply mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4;
+    }
+
+    .brand {
+        @apply inline-flex shrink-0 items-center;
+    }
+
+    .brand img {
+        @apply h-12 w-auto object-contain;
+    }
+
+    .main-nav {
+        @apply flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-muted;
+    }
+
+    .main-nav a:hover {
+        @apply text-brand-700;
+    }
+
+    .page-shell {
+        @apply mx-auto w-full max-w-7xl px-5 py-10 md:py-14;
+    }
+
+    .page-heading {
+        @apply mb-8 flex flex-wrap items-end justify-between gap-4;
+    }
+
+    .eyebrow {
+        @apply mb-2 text-xs font-bold tracking-[0.18em] text-brand-600 uppercase;
+    }
+
+    .page-title {
+        @apply text-3xl font-extrabold tracking-tight text-ink md:text-4xl;
+    }
+
+    .page-copy {
+        @apply mt-3 max-w-2xl leading-7 text-muted;
+    }
+
+    .catalog-grid {
+        @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3;
+    }
+
+    .catalog-card {
+        @apply flex h-full flex-col overflow-hidden rounded-3xl border border-emerald-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
+    }
+
+    .card-image {
+        @apply aspect-[16/10] w-full bg-brand-50 object-cover;
+    }
+
+    .card-image-placeholder {
+        @apply flex aspect-[16/10] items-center justify-center bg-brand-50 text-5xl;
+    }
+
+    .card-body {
+        @apply flex flex-1 flex-col gap-3 p-5;
+    }
+
+    .card-title {
+        @apply text-xl font-bold text-ink;
+    }
+
+    .card-copy {
+        @apply line-clamp-3 leading-6 text-muted;
+    }
+
+    .badge {
+        @apply inline-flex w-fit items-center rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-700;
+    }
+
+    .price {
+        @apply text-lg font-extrabold text-brand-700;
+    }
+
+    .button {
+        @apply inline-flex min-h-11 items-center justify-center rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-700 focus:ring-4 focus:ring-brand-100 focus:outline-none;
+    }
+
+    .button-secondary {
+        @apply inline-flex min-h-10 items-center justify-center rounded-xl border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-ink transition hover:bg-brand-50;
+    }
+
+    .button-danger {
+        @apply inline-flex min-h-10 items-center justify-center rounded-xl bg-rose-50 px-4 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-100;
+    }
+
+    .filter-row {
+        @apply mb-6 flex flex-wrap gap-2;
+    }
+
+    .detail-panel {
+        @apply grid gap-8 overflow-hidden rounded-3xl border border-emerald-100 bg-white p-5 shadow-sm md:grid-cols-2 md:p-8;
+    }
+
+    .detail-copy {
+        @apply leading-7 whitespace-pre-line text-muted;
+    }
+
+    .form-card {
+        @apply mx-auto max-w-3xl rounded-3xl border border-emerald-100 bg-white p-5 shadow-sm sm:p-8;
+    }
+
+    .form-grid {
+        @apply grid gap-5 sm:grid-cols-2;
+    }
+
+    .field {
+        @apply flex flex-col gap-2;
+    }
+
+    .field label {
+        @apply text-sm font-semibold text-ink;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+        @apply min-h-11 rounded-xl border border-emerald-200 bg-white px-3 py-2 text-sm text-ink outline-none focus:border-brand-500 focus:ring-4 focus:ring-brand-100;
+    }
+
+    .field textarea {
+        @apply min-h-28;
+    }
+
+    .admin-grid {
+        @apply grid gap-4 sm:grid-cols-2 xl:grid-cols-4;
+    }
+
+    .stat-card {
+        @apply rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm;
+    }
+
+    .table-wrap {
+        @apply overflow-x-auto rounded-3xl border border-emerald-100 bg-white shadow-sm;
+    }
+
+    .data-table {
+        @apply w-full min-w-[720px] border-collapse text-left text-sm;
+    }
+
+    .data-table th {
+        @apply bg-brand-50 px-5 py-4 font-bold text-brand-700;
+    }
+
+    .data-table td {
+        @apply border-t border-emerald-50 px-5 py-4 align-middle;
+    }
+
+    .alert {
+        @apply mb-6 rounded-2xl border px-4 py-3 text-sm;
+    }
+
+    .alert-success {
+        @apply border-emerald-200 bg-brand-50 text-brand-700;
+    }
+
+    .alert-error {
+        @apply border-rose-200 bg-rose-50 text-rose-700;
+    }
+
+    .pagination {
+        @apply mt-8;
+    }
+
+    .pagination nav > div:first-child {
+        @apply hidden;
+    }
+
+    .pagination nav > div:last-child {
+        @apply flex flex-wrap items-center justify-between gap-3;
+    }
+}
